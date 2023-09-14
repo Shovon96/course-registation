@@ -9,7 +9,8 @@ const Cards = () => {
     const [courses, setCourses] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState([])
     const [totalCreditHr, setTotalCreditHr] = useState(0)
-    const [remaining, setRemaining] = useState(0)
+    const [remainingTime, setRemainingTime] = useState(20)
+    const [totalPrice, setTotalPrice] = useState(0)
 
     useEffect(() => {
         fetch('../../public/data.json')
@@ -17,19 +18,29 @@ const Cards = () => {
             .then(data => setCourses(data))
     }, [])
 
+    let time = 20;
     const handaleSelectCourse = (course) => {
         const isSelectedCourse = selectedCourse.find(item => item.id === course.id)
         let countHr = course.credit;
+        let price = course.price;
         if (isSelectedCourse) {
             alert('This one is already selected')
         } else {
             selectedCourse.forEach((item) => {
                 countHr = countHr + item.credit
-            })
-            setTotalCreditHr(countHr);
-            setSelectedCourse([...selectedCourse, course])
+                price = price + item.price
+            });
+            setTotalPrice(price)
+
+            const totalRemainig = time - countHr
+            if (totalRemainig <= 0 && countHr > time) {
+                alert('Total Time is gone')
+            } else {
+                setTotalCreditHr(countHr);
+                setRemainingTime(totalRemainig);
+                setSelectedCourse([...selectedCourse, course])
+            }
         }
-        // console.log(isSelectedCourse);
     }
 
     return (
@@ -60,6 +71,8 @@ const Cards = () => {
                 <Carts
                     selectedCourse={selectedCourse}
                     totalCreditHr={totalCreditHr}
+                    remainingTime={remainingTime}
+                    totalPrice={totalPrice}
                 ></Carts>
             </div>
         </div>
