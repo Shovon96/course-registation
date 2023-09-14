@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "image": "https://i.ibb.co/JH2LVXB/Rectangle-2-2.png",
+        "title": "Introduction to C Programming",
+        "description": "C Programming is a powerful and versatile programming language known for its efficiency and wide range of applications.",
+        "credit": 1,
+        "price": "15000"
+    },
+    {
+        "id": 2,
+        "image": "https://i.ibb.co/Ss1HmLM/Rectangle-2-3.png",
+        "title": "Introduction to Algorithms",
+        "description": "Algorithms are step-by-step instructions for solving problems and performing tasks in computer science and mathematics.",
+        "credit": 2,
+        "price": "25000"
+    },
+    {
+        "id": 3,
+        "image": "https://i.ibb.co/XV135vz/Rectangle-2-4.png",
+        "title": "Introduction to C++ for DSA",
+        "description": "C++ high-level features with low-level memory manipulation, making it suitable for a wide range of software development applications.",
+        "credit": 10,
+        "price": "10000"
+    },
+    {
+        "id": 4,
+        "image": "https://i.ibb.co/HTTh647/Rectangle-3.png",
+        "title": "Basic Data Structures",
+        "description": "Data structures are fundamental components in computer science used for organizing and storing data efficiently.",
+        "credit": 5,
+        "price": "35000"
+    },
+    {
+        "id": 5,
+        "image": "https://i.ibb.co/ncTHXXv/Rectangle-2.png",
+        "title": "Introduction to OOP Python",
+        "description": "Python is a high-level, versatile programming language known for its simplicity and readability.",
+        "credit": 5,
+        "price": "19000"
+    },
+    {
+        "id": 6,
+        "image": "https://i.ibb.co/n6sYBr2/Rectangle-2-5.png",
+        "title": "Software Engineering",
+        "description": "Software Engineering is the systematic approach to designing, developing, testing, and maintaining software systems.",
+        "credit": 2,
+        "price": "23000"
+    },
+    {
+        "id": 7,
+        "image": "https://i.ibb.co/vcr9Mx1/Rectangle-3-1.png",
+        "title": "AWS, Cloud Computing",
+        "description": "Amazon Web Services (AWS) is a comprehensive and widely used cloud computing platform, offering a range of cloud services.",
+        "credit": 5,
+        "price": "35000"
+    },
+    {
+        "id": 8,
+        "image": "https://i.ibb.co/jWhJzsg/Rectangle-2-1.png",
+        "title": "Database (MySQL)",
+        "description": "MySQL is an open-source relational database management system (RDBMS) known for its speed and reliability.",
+        "credit": 5,
+        "price": "19000"
+    },
+    {
+        "id": 9,
+        "image": "https://i.ibb.co/C26qpTT/Rectangle-2-6.png",
+        "title": "Problem-Solving Part",
+        "description": "Problem-solving is the process of identifying and resolving challenges or issues through logical thinking and systematic approaches.",
+        "credit": 2,
+        "price": "23000"
+    }
+]
