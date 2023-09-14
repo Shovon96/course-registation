@@ -19,7 +19,7 @@
         "id": 3,
         "image": "https://i.ibb.co/XV135vz/Rectangle-2-4.png",
         "title": "Introduction to C++ for DSA",
-        "description": "C++ high-level features with low-level memory manipulation, making it suitable for a wide range of software development applications.",
+        "description": "C++ high-level features with low-level memory manipulation, making it suitable for a wide range of software development.",
         "credit": 10,
         "price": "10000"
     },
