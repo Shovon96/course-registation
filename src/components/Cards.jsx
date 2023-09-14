@@ -3,6 +3,8 @@ import { useState } from "react";
 import Carts from "./Carts";
 import { FiDollarSign } from 'react-icons/fi';
 import { FiBookOpen } from 'react-icons/fi';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cards = () => {
 
@@ -24,7 +26,9 @@ const Cards = () => {
         let countHr = course.credit;
         let price = course.price;
         if (isSelectedCourse) {
-            alert('This one is already selected')
+            toast.warning('Course already selected...', {
+                position: toast.POSITION.TOP_CENTER
+            });
         } else {
             selectedCourse.forEach((item) => {
                 countHr = countHr + item.credit
@@ -34,7 +38,9 @@ const Cards = () => {
 
             const totalRemainig = time - countHr
             if (totalRemainig <= 0 && countHr > time) {
-                alert('Total Time is gone')
+                toast.warning('Credit time is up..', {
+                    position: toast.POSITION.TOP_CENTER
+                });
             } else {
                 setTotalCreditHr(countHr);
                 setRemainingTime(totalRemainig);
@@ -62,7 +68,7 @@ const Cards = () => {
                                     onClick={() => handaleSelectCourse(course)}
                                     className="py-3 px-36 mx-auto my-4 bg-blue-500 text-white font-bold capitalize text-2xl rounded-lg">
                                     Select
-                                </button>
+                                </button><ToastContainer />
                             </div>
                         )
                     }
