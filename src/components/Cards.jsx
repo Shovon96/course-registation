@@ -8,6 +8,8 @@ const Cards = () => {
 
     const [courses, setCourses] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState([])
+    const [totalCreditHr, setTotalCreditHr] = useState(0)
+    const [remaining, setRemaining] = useState(0)
 
     useEffect(() => {
         fetch('../../public/data.json')
@@ -16,8 +18,18 @@ const Cards = () => {
     }, [])
 
     const handaleSelectCourse = (course) => {
-        // const isSelectedCourse = selectedCourse.find(item => item.id === course.id)
-        setSelectedCourse([...selectedCourse, course])
+        const isSelectedCourse = selectedCourse.find(item => item.id === course.id)
+        let countHr = course.credit;
+        if (isSelectedCourse) {
+            alert('This one is already selected')
+        } else {
+            selectedCourse.forEach((item) => {
+                countHr = countHr + item.credit
+            })
+            setTotalCreditHr(countHr);
+            setSelectedCourse([...selectedCourse, course])
+        }
+        // console.log(isSelectedCourse);
     }
 
     return (
@@ -35,13 +47,20 @@ const Cards = () => {
                                     <h5 className="flex items-center gap-2"><FiDollarSign></FiDollarSign>Price: {course.price}</h5>
                                     <h5 className="flex items-center gap-4"><FiBookOpen></FiBookOpen>Credit: {course.credit}hr</h5>
                                 </div>
-                                <button onClick={() => handaleSelectCourse(course)} className="py-3 px-36 mx-auto my-4 bg-blue-500 text-white font-bold capitalize text-2xl rounded-lg">Select</button>
+                                <button
+                                    onClick={() => handaleSelectCourse(course)}
+                                    className="py-3 px-36 mx-auto my-4 bg-blue-500 text-white font-bold capitalize text-2xl rounded-lg">
+                                    Select
+                                </button>
                             </div>
                         )
                     }
                 </div>
 
-                <Carts selectedCourse={selectedCourse}></Carts>
+                <Carts
+                    selectedCourse={selectedCourse}
+                    totalCreditHr={totalCreditHr}
+                ></Carts>
             </div>
         </div>
     );
