@@ -27,7 +27,7 @@
         "id": 4,
         "image": "https://i.ibb.co/HTTh647/Rectangle-3.png",
         "title": "Basic Data Structures",
-        "description": "Data structures are fundamental components in computer science used for organizing and storing data efficiently.",
+        "description": "Data structures are fundamental components in computer science used for organizing and storing data.",
         "credit": 5,
         "price": "35000"
     },
@@ -43,7 +43,7 @@
         "id": 6,
         "image": "https://i.ibb.co/n6sYBr2/Rectangle-2-5.png",
         "title": "Software Engineering",
-        "description": "Software Engineering is the systematic approach to designing, developing, testing, and maintaining software systems.",
+        "description": "Software Engineering is the systematic approach to designing, developing, testing, and maintaining systems.",
         "credit": 2,
         "price": "23000"
     },
@@ -59,7 +59,7 @@
         "id": 8,
         "image": "https://i.ibb.co/jWhJzsg/Rectangle-2-1.png",
         "title": "Database (MySQL)",
-        "description": "MySQL is an open-source relational database management system (RDBMS) known for its speed and reliability.",
+        "description": "MySQL is an open-source relational database management system (RDBMS) known for database managment its speed and reliability.",
         "credit": 5,
         "price": "19000"
     },

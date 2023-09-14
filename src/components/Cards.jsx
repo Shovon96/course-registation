@@ -16,9 +16,8 @@ const Cards = () => {
     }, [])
 
     const handaleSelectCourse = (course) => {
-        const isSelectedCourse = selectedCourse.find(item => item.id === course.id)
-        setSelectedCourse(isSelectedCourse)
-        console.log(isSelectedCourse);
+        // const isSelectedCourse = selectedCourse.find(item => item.id === course.id)
+        setSelectedCourse([...selectedCourse, course])
     }
 
     return (
@@ -28,7 +27,7 @@ const Cards = () => {
                 <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-3/4 gap-8 ml-12 my-12">
                     {
                         courses.map(course =>
-                            <div className="border-2 rounded-lg shadow-lg shadow-gray-400 p-4" key={course.id}>
+                            <div className="border-2 rounded-lg shadow-lg text-center shadow-gray-400 p-4" key={course.id}>
                                 <img className=" w-full mx-auto my-5" src={course.image} alt="" />
                                 <h2 className=" text-2xl font-bold my-2">{course.title}</h2>
                                 <h4 className=" text-xl p-5">{course.description}</h4>
@@ -36,13 +35,13 @@ const Cards = () => {
                                     <h5 className="flex items-center gap-2"><FiDollarSign></FiDollarSign>Price: {course.price}</h5>
                                     <h5 className="flex items-center gap-4"><FiBookOpen></FiBookOpen>Credit: {course.credit}hr</h5>
                                 </div>
-                                <button onClick={() => handaleSelectCourse(course)} className="py-3 px-44 mx-auto my-4 bg-blue-500 text-white font-bold capitalize text-2xl rounded-lg">Select</button>
+                                <button onClick={() => handaleSelectCourse(course)} className="py-3 px-36 mx-auto my-4 bg-blue-500 text-white font-bold capitalize text-2xl rounded-lg">Select</button>
                             </div>
                         )
                     }
                 </div>
 
-                <Carts></Carts>
+                <Carts selectedCourse={selectedCourse}></Carts>
             </div>
         </div>
     );
