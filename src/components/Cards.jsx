@@ -15,7 +15,7 @@ const Cards = () => {
     const [totalPrice, setTotalPrice] = useState(0)
 
     useEffect(() => {
-        fetch('../../public/data.json')
+        fetch('data.json')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])
@@ -32,9 +32,8 @@ const Cards = () => {
         } else {
             selectedCourse.forEach((item) => {
                 countHr = countHr + item.credit
-                price = price + item.price
+                    price = price + item.price
             });
-            setTotalPrice(price)
 
             const totalRemainig = time - countHr
             if (totalRemainig <= 0 && countHr > time) {
@@ -43,6 +42,7 @@ const Cards = () => {
                 });
             } else {
                 setTotalCreditHr(countHr);
+                setTotalPrice(price)
                 setRemainingTime(totalRemainig);
                 setSelectedCourse([...selectedCourse, course])
             }
@@ -52,23 +52,25 @@ const Cards = () => {
     return (
         <div>
             <h1 className=" text-5xl text-center font-bold my-4">Course Registration</h1>
-            <div className="flex">
-                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-3/4 gap-8 ml-12 my-12">
+            <div className="flex container mx-auto">
+                <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-4/5 gap-4 my-12">
                     {
                         courses.map(course =>
-                            <div className="border-2 rounded-lg shadow-lg text-center shadow-gray-400 p-4" key={course.id}>
-                                <img className=" w-full mx-auto my-5" src={course.image} alt="" />
-                                <h2 className=" text-2xl font-bold my-2">{course.title}</h2>
-                                <h4 className=" text-xl p-5">{course.description}</h4>
-                                <div className="flex justify-evenly text-gray-500 my-2 text-2xl font-semibold">
+                            <div className="border-2 rounded-lg shadow-lg shadow-gray-400 p-2" key={course.id}>
+                                <img className="w-full mx-auto" src={course.image} alt="" />
+                                <h2 className=" text-lg font-semibold my-2">{course.title}</h2>
+                                <h4 className=" text-sm p-2">{course.description}</h4>
+                                <div className="flex justify-evenly text-gray-500 my-2 text-sm font-medium">
                                     <h5 className="flex items-center gap-2"><FiDollarSign></FiDollarSign>Price: {course.price}</h5>
-                                    <h5 className="flex items-center gap-4"><FiBookOpen></FiBookOpen>Credit: {course.credit}hr</h5>
+                                    <h5 className="flex items-center gap-2"><FiBookOpen></FiBookOpen>Credit: {course.credit}hr</h5>
                                 </div>
-                                <button
-                                    onClick={() => handaleSelectCourse(course)}
-                                    className="py-3 px-36 mx-auto my-4 bg-blue-500 text-white font-bold capitalize text-2xl rounded-lg">
-                                    Select
-                                </button><ToastContainer />
+                                <div className="flex justify-center">
+                                    <button
+                                        onClick={() => handaleSelectCourse(course)}
+                                        className="py-2 px-20 my-2 bg-blue-500 text-white font-semibold capitalize text-sm rounded-lg">
+                                        Select
+                                    </button><ToastContainer />
+                                </div>
                             </div>
                         )
                     }
